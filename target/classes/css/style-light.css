@@ -1,0 +1,438 @@
+.root-pane {
+    -fx-background-color: #f5f5f5;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent #e0e0e0 transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.account-block {
+    -fx-background-color: transparent;
+}
+
+.avatar-circle {
+    -fx-min-width: 36; -fx-min-height: 36;
+    -fx-max-width: 36; -fx-max-height: 36;
+    -fx-background-color: #3f9c2a;
+    -fx-background-radius: 50%;
+}
+
+.avatar-letter {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.account-name {
+    -fx-text-fill: #1a1a1a;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.account-status {
+    -fx-text-fill: #2e7d32;
+    -fx-font-size: 11px;
+}
+
+.sidebar-separator .line {
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1 0 0 0;
+}
+
+.nav-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #505050;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 9 10 9 10;
+    -fx-background-radius: 4;
+    -fx-max-width: Infinity;
+    -fx-cursor: hand;
+}
+
+.nav-item:hover {
+    -fx-background-color: #eeeeee;
+    -fx-text-fill: #000000;
+}
+
+.nav-item:selected {
+    -fx-background-color: #e3f3dd;
+    -fx-text-fill: #2e7d32;
+    -fx-font-weight: bold;
+}
+
+.version-label {
+    -fx-text-fill: #999999;
+    -fx-font-size: 10px;
+    -fx-padding: 10 0 0 6;
+}
+
+/* ---------- Hero / Play area ---------- */
+
+.hero-banner {
+    -fx-background-color: linear-gradient(to bottom right, #d9f0d1, #c3e6ba 60%, #b0dba5);
+}
+
+.hero-banner-overlay {
+    -fx-background-color: rgba(255, 255, 255, 0.25);
+}
+
+.hero-logo-text {
+    -fx-text-fill: #2e7d32;
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI Black";
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.8), 8, 0.4, 0, 2);
+}
+
+.hero-placeholder-hint {
+    -fx-text-fill: #5a7a52;
+    -fx-font-size: 12px;
+    -fx-font-style: italic;
+}
+
+.hero-subtitle {
+    -fx-text-fill: #4a5a48;
+    -fx-font-size: 13px;
+}
+
+.play-bar {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.field-label {
+    -fx-text-fill: #6a6a6a;
+    -fx-font-size: 12px;
+}
+
+.res-field {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #1a1a1a;
+    -fx-background-radius: 4;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 4;
+}
+
+.version-dropdown {
+    -fx-background-color: #f0f0f0;
+    -fx-background-radius: 4;
+    -fx-text-fill: #1a1a1a;
+    -fx-mark-color: #1a1a1a;
+}
+
+.version-dropdown .list-cell {
+    -fx-text-fill: #1a1a1a;
+    -fx-background-color: transparent;
+}
+
+.version-dropdown .list-cell:empty {
+    -fx-text-fill: #8a8a8a;
+}
+
+.version-dropdown .combo-box-popup .list-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d0d0d0;
+}
+
+.version-dropdown .combo-box-popup .list-cell {
+    -fx-text-fill: #1a1a1a;
+    -fx-background-color: #ffffff;
+    -fx-padding: 6 10 6 10;
+}
+
+.version-dropdown .combo-box-popup .list-cell:hover {
+    -fx-background-color: #eeeeee;
+}
+
+.version-dropdown .combo-box-popup .list-cell:filled:selected {
+    -fx-background-color: #e3f3dd;
+    -fx-text-fill: #2e7d32;
+}
+
+.status-label {
+    -fx-text-fill: #757575;
+    -fx-font-size: 11px;
+}
+
+.btn-outline {
+    -fx-background-color: transparent;
+    -fx-border-color: #a5c9a0;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-text-fill: #2e7d32;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+}
+
+.btn-outline:hover {
+    -fx-background-color: #eaf5e6;
+}
+
+.btn-outline-small {
+    -fx-background-color: transparent;
+    -fx-border-color: #c0c0c0;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-text-fill: #505050;
+    -fx-padding: 4 10 4 10;
+    -fx-font-size: 11px;
+    -fx-cursor: hand;
+}
+
+.btn-outline-small:hover {
+    -fx-background-color: #eeeeee;
+}
+
+.btn-play {
+    -fx-background-color: linear-gradient(to bottom, #5ec73f, #3f9c2a);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 40 12 40;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+    -fx-border-color: #2c7a1c;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+}
+
+.btn-play:hover {
+    -fx-background-color: linear-gradient(to bottom, #6fdb4f, #4bb432);
+}
+
+.btn-play:disabled {
+    -fx-opacity: 0.5;
+}
+
+/* ---------- Settings / server list view ---------- */
+
+.settings-view {
+    -fx-background-color: #f5f5f5;
+}
+
+.section-heading {
+    -fx-text-fill: #1a1a1a;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.subsection-heading {
+    -fx-text-fill: #505050;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.settings-checkbox {
+    -fx-text-fill: #303030;
+    -fx-font-size: 13px;
+}
+
+.settings-checkbox .box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #c0c0c0;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.settings-checkbox:selected .box {
+    -fx-background-color: #3f9c2a;
+    -fx-border-color: #3f9c2a;
+}
+
+.settings-checkbox:selected .mark {
+    -fx-background-color: white;
+}
+
+.server-list {
+    -fx-background-color: transparent;
+    -fx-control-inner-background: #ffffff;
+    -fx-text-fill: #1a1a1a;
+}
+
+.server-list .list-cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #303030;
+    -fx-padding: 10 12 10 12;
+    -fx-background-radius: 4;
+}
+
+.server-list .list-cell:selected {
+    -fx-background-color: #e3f3dd;
+    -fx-text-fill: #1a1a1a;
+    -fx-background-radius: 4;
+}
+
+/* ---------- Installations tab (row-based) ---------- */
+
+.installations-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.installations-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.install-row {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #e0e0e0 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 14 4 14 4;
+    -fx-cursor: hand;
+}
+
+.install-row:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+.install-icon {
+    -fx-min-width: 36; -fx-min-height: 36;
+    -fx-max-width: 36; -fx-max-height: 36;
+    -fx-background-radius: 4;
+}
+
+.install-icon-vanilla {
+    -fx-background-color: #3f9c2a;
+}
+
+.install-icon-fabric {
+    -fx-background-color: #a67c52;
+}
+
+.install-icon-letter {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.install-name {
+    -fx-text-fill: #1a1a1a;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.install-subtitle {
+    -fx-text-fill: #757575;
+    -fx-font-size: 12px;
+}
+
+.btn-play-small {
+    -fx-background-color: linear-gradient(to bottom, #5ec73f, #3f9c2a);
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 7 18 7 18;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+
+.btn-play-small:hover {
+    -fx-background-color: linear-gradient(to bottom, #6fdb4f, #4bb432);
+}
+
+.btn-icon {
+    -fx-background-color: transparent;
+    -fx-border-color: #c0c0c0;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-text-fill: #505050;
+    -fx-padding: 6 10 6 10;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+
+.btn-icon:hover {
+    -fx-background-color: #eeeeee;
+}
+
+/* ---------- Mod browser dialog ---------- */
+
+.mod-browser-dialog {
+    -fx-background-color: #f5f5f5;
+}
+
+.mod-browser-dialog > *.header-panel {
+    -fx-background-color: #ffffff;
+}
+
+.mod-browser-dialog .header-panel .label {
+    -fx-text-fill: #1a1a1a;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.mod-browser-dialog .content.label {
+    -fx-text-fill: #4a5a48;
+}
+
+.mod-browser-dialog .button-bar .button {
+    -fx-background-color: transparent;
+    -fx-border-color: #a5c9a0;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-text-fill: #2e7d32;
+}
+
+.mod-browser-dialog .button-bar .button:hover {
+    -fx-background-color: #eaf5e6;
+}
+
+/* ---------- Scrollbars (light theme, applied wherever ScrollPane/ListView appear) ---------- */
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .track {
+    -fx-background-color: #eeeeee;
+    -fx-background-radius: 6;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #c0c0c0;
+    -fx-background-radius: 6;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #a0a0a0;
+}
+
+.scroll-bar .thumb:pressed {
+    -fx-background-color: #3f9c2a;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: #909090;
+}
+
+.scroll-bar:vertical .track-background,
+.scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+
+.console-bar {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.console-text {
+    -fx-text-fill: #2e7d32;
+    -fx-font-family: "Consolas";
+    -fx-font-size: 11px;
+}
