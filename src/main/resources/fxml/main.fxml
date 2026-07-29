@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="site.kpeclub.launcher.ui.MainController"
+            styleClass="root-pane">
+
+    <!-- Left: sidebar with account block + nav -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="230" minWidth="230">
+
+            <!-- Account block -->
+            <VBox styleClass="account-block" spacing="2">
+                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <StackPane styleClass="avatar-circle">
+                        <Label text="?" styleClass="avatar-letter"/>
+                    </StackPane>
+                    <VBox spacing="1">
+                        <Label fx:id="accountLabel" text="Not signed in" styleClass="account-name"/>
+                        <Label fx:id="accountStatusLabel" text="offline" styleClass="account-status"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <Separator styleClass="sidebar-separator"/>
+
+            <!-- Nav -->
+            <VBox styleClass="nav-list" spacing="2">
+                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                <ToggleButton fx:id="navHomeButton" text="Home" styleClass="nav-item" selected="true"/>
+                <ToggleButton fx:id="navPlayButton" text="Minecraft: Java Edition" styleClass="nav-item"/>
+                <ToggleButton fx:id="navInstallationsButton" text="Installations" styleClass="nav-item"/>
+                <ToggleButton fx:id="navModpacksButton" text="Modpacks" styleClass="nav-item"/>
+                <ToggleButton fx:id="navBrowseModsButton" text="Browse Mods" styleClass="nav-item"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Separator styleClass="sidebar-separator"/>
+
+            <VBox styleClass="nav-list" spacing="2">
+                <padding><Insets top="10" right="10" bottom="14" left="10"/></padding>
+                <ToggleButton fx:id="navWhatsNewButton" text="What's new" styleClass="nav-item"/>
+                <ToggleButton fx:id="navSettingsButton" text="Settings" styleClass="nav-item"/>
+                <Label text="v1.0.0" styleClass="version-label"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- Center: hero banner + play controls, or settings panel -->
+    <center>
+        <StackPane>
+
+            <!-- ============ PLAY VIEW ============ -->
+            <BorderPane fx:id="playView">
+
+                <center>
+                    <!-- Hero banner: image loaded defensively in MainController (falls back to the
+                         CSS gradient if banner.png is missing/broken), text centered via StackPane.
+                         minWidth/minHeight/prefWidth/prefHeight are pinned small so the pane never
+                         grows to the image's native resolution and pushes the bottom bar off-screen —
+                         BorderPane.setAlignment + maxWidth/maxHeight=Infinity make it fill whatever
+                         space is actually available instead. -->
+                    <StackPane fx:id="heroBannerPane" styleClass="hero-banner"
+                               minWidth="0" minHeight="0" prefWidth="200" prefHeight="200"
+                               maxWidth="Infinity" maxHeight="Infinity">
+                        <StackPane fx:id="heroBannerOverlay" styleClass="hero-banner-overlay"/>
+                        <Label text="KPE CLUB" styleClass="hero-logo-text" StackPane.alignment="CENTER"/>
+                    </StackPane>
+                </center>
+
+                <bottom>
+                    <VBox styleClass="play-bar" spacing="10">
+                        <padding><Insets top="14" right="20" bottom="16" left="20"/></padding>
+
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Username:" styleClass="field-label"/>
+                            <TextField fx:id="usernameField" prefWidth="150" promptText="Enter username" styleClass="res-field"/>
+                            <Label text="Server:" styleClass="field-label"/>
+                            <ComboBox fx:id="serverComboBox" prefWidth="180" styleClass="version-dropdown" promptText="No server selected"/>
+                            <Button fx:id="addServerButton" text="+ Add" styleClass="btn-outline-small"/>
+                            <Button fx:id="removeServerButton" text="Remove" styleClass="btn-outline-small"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label text="Resolution:" styleClass="field-label"/>
+                            <TextField fx:id="widthField" prefWidth="60" text="1280" styleClass="res-field"/>
+                            <Label text="x" styleClass="field-label"/>
+                            <TextField fx:id="heightField" prefWidth="60" text="720" styleClass="res-field"/>
+                        </HBox>
+
+                        <HBox spacing="10" alignment="CENTER">
+                            <ComboBox fx:id="versionComboBox" prefWidth="160" styleClass="version-dropdown"/>
+                            <ComboBox fx:id="modLoaderComboBox" prefWidth="110" styleClass="version-dropdown"/>
+                            <ComboBox fx:id="fabricLoaderVersionComboBox" prefWidth="140" styleClass="version-dropdown" visible="false" managed="false"/>
+                            <Button fx:id="refreshHomeButton" text="Refresh" styleClass="btn-outline-small"/>
+                            <Button fx:id="playButton" text="PLAY" styleClass="btn-play" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                            <Button fx:id="loginButton" text="Sign in" styleClass="btn-outline"/>
+                        </HBox>
+
+                        <HBox spacing="8" alignment="CENTER_LEFT">
+                            <ProgressBar fx:id="downloadProgress" prefWidth="300" visible="false" managed="false"/>
+                            <Label fx:id="progressDetailLabel" styleClass="status-label" visible="false" managed="false"/>
+                            <Button fx:id="cancelButton" text="Cancel" styleClass="btn-outline-small" visible="false" managed="false"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="statusLabel" styleClass="status-label"/>
+                        </HBox>
+                    </VBox>
+                </bottom>
+            </BorderPane>
+
+            <!-- ============ SETTINGS VIEW (launcher settings) ============ -->
+            <VBox fx:id="settingsView" visible="false" managed="false" styleClass="settings-view" spacing="14">
+                <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+
+                <Label text="Launcher Settings" styleClass="section-heading"/>
+                <CheckBox fx:id="keepOpenCheckBox" text="Keep the launcher open while the game is running" styleClass="settings-checkbox"/>
+
+                <Separator styleClass="sidebar-separator"/>
+
+                <Label text="Theme" styleClass="subsection-heading"/>
+                <HBox spacing="8">
+                    <ComboBox fx:id="themeComboBox" prefWidth="140" styleClass="version-dropdown"/>
+                </HBox>
+
+                <Separator styleClass="sidebar-separator"/>
+
+                <Label text="Wallpaper" styleClass="subsection-heading"/>
+                <Label fx:id="wallpaperStatusLabel" text="Using default background." styleClass="hero-subtitle"/>
+                <HBox spacing="8">
+                    <Button fx:id="changeWallpaperButton" text="Change Wallpaper" styleClass="btn-outline"/>
+                    <Button fx:id="resetWallpaperButton" text="Reset to Default" styleClass="btn-outline-small"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Brightness:" styleClass="field-label"/>
+                    <Slider fx:id="bannerBrightnessSlider" min="0" max="1" prefWidth="200"/>
+                </HBox>
+
+                <Separator styleClass="sidebar-separator"/>
+
+                <Label text="On Uninstall" styleClass="subsection-heading"/>
+                <Label text="Choose ahead of time whether uninstalling should also remove your saved settings (servers, wallpaper, preferences)." styleClass="hero-subtitle" wrapText="true"/>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <ComboBox fx:id="uninstallDataComboBox" prefWidth="220" styleClass="version-dropdown"/>
+                </HBox>
+            </VBox>
+
+            <!-- ============ INSTALLATIONS VIEW ============ -->
+            <VBox fx:id="installationsView" visible="false" managed="false" styleClass="settings-view" spacing="10">
+                <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Installations" styleClass="section-heading"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="refreshInstallationsButton" text="Refresh" styleClass="btn-outline-small"/>
+                </HBox>
+                <ScrollPane fx:id="installationsScrollPane" fitToWidth="true" styleClass="installations-scroll" VBox.vgrow="ALWAYS">
+                    <VBox spacing="20">
+                        <VBox fx:id="installationsListBox" spacing="0"/>
+
+                        <VBox spacing="6">
+                            <Label text="Mods" styleClass="subsection-heading"/>
+                            <VBox fx:id="modsListBox" spacing="0"/>
+                        </VBox>
+
+                        <VBox spacing="6">
+                            <Label text="Resource Packs" styleClass="subsection-heading"/>
+                            <VBox fx:id="resourcePacksListBox" spacing="0"/>
+                        </VBox>
+                    </VBox>
+                </ScrollPane>
+                <Label fx:id="installationsFolderLabel" styleClass="status-label"/>
+            </VBox>
+
+            <!-- ============ MODPACKS VIEW ============ -->
+            <VBox fx:id="modpacksView" visible="false" managed="false" styleClass="settings-view" spacing="14">
+                <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Modpacks" styleClass="section-heading"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="importModpackButton" text="Import .mrpack" styleClass="btn-outline"/>
+                </HBox>
+                <Label text="Modrinth (.mrpack) modpacks only, Fabric loader only, for now." styleClass="hero-subtitle"/>
+                <ScrollPane fitToWidth="true" styleClass="installations-scroll" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="modpacksListBox" spacing="0"/>
+                </ScrollPane>
+                <ProgressBar fx:id="modpackImportProgress" prefWidth="400" visible="false" managed="false"/>
+                <Label fx:id="modpackImportStatusLabel" styleClass="status-label"/>
+            </VBox>
+
+            <!-- ============ BROWSE MODS VIEW ============ -->
+            <VBox fx:id="browseModsView" visible="false" managed="false" styleClass="settings-view" spacing="14">
+                <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+                <Label text="Browse Mods" styleClass="section-heading"/>
+                <Label fx:id="browseModsContextLabel" text="Searching mods" styleClass="hero-subtitle"/>
+                <HBox spacing="8">
+                    <TextField fx:id="modSearchField" promptText="Search mods (e.g. sodium, jei)..." styleClass="res-field" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                    <Button fx:id="modSearchButton" text="Search" styleClass="btn-play-small"/>
+                </HBox>
+                <ScrollPane fitToWidth="true" styleClass="installations-scroll" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="modSearchResultsBox" spacing="0"/>
+                </ScrollPane>
+                <Label fx:id="modSearchStatusLabel" styleClass="status-label"/>
+            </VBox>
+
+        </StackPane>
+    </center>
+
+    <!-- Bottom: console/log bar -->
+    <bottom>
+        <HBox styleClass="console-bar" spacing="10" alignment="CENTER_LEFT">
+            <padding><Insets top="6" right="10" bottom="6" left="10"/></padding>
+            <Label fx:id="consoleLabel" text="Ready." styleClass="console-text" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
