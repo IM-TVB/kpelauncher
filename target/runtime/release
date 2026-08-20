@@ -1,2 +1,0 @@
-JAVA_VERSION="25"
-MODULES="java.base jdk.unsupported com.google.gson java.datatransfer java.xml java.prefs java.desktop java.net.http java.scripting javafx.base javafx.graphics javafx.controls javafx.fxml jdk.httpserver site.kpeclub.launcher"
