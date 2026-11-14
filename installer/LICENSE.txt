@@ -1,0 +1,20 @@
+KPE Club Launcher — Terms of Service
+
+1. This launcher is provided as-is, with no warranty of any kind.
+
+2. You are responsible for owning a legitimate copy of Minecraft: Java
+   Edition if you sign in with a Microsoft account. This launcher does
+   not provide, sell, or facilitate unauthorized access to Minecraft.
+
+3. Offline/username-only mode is intended for use with servers that
+   explicitly allow non-premium connections (online-mode=false). Using
+   it to impersonate other players or to attempt unauthorized access to
+   premium-only servers is not permitted.
+
+4. KPE Club is not affiliated with Mojang Studios or Microsoft.
+   Minecraft is a trademark of Mojang Synergies AB.
+
+5. Local launcher preferences are stored on your computer inside
+   %APPDATA%\.kpelauncher and game files inside %APPDATA%\.minecraft.
+
+By continuing with this installation, you agree to these terms.

@@ -1,0 +1,23 @@
+/* KPE Club Launcher — LIGHT palette. Only colors live here; shapes are in style-base.css. */
+.root {
+    -kpe-bg: #f3f5fa;
+    -kpe-sidebar: #ffffff;
+    -kpe-surface: #ffffff;
+    -kpe-surface-2: #eef1f8;
+    -kpe-surface-hover: #e4e9f5;
+    -kpe-border: #d9dfec;
+    -kpe-text: #161a26;
+    -kpe-text-dim: #59627a;
+    -kpe-text-faint: #8d95aa;
+    -kpe-accent: #2563eb;
+    -kpe-accent-2: #0d9488;
+    -kpe-accent-soft: rgba(37, 99, 235, 0.12);
+    -kpe-accent-text: #1d4ed8;
+    -kpe-danger: #dc2626;
+    -kpe-console-bg: #e9edf6;
+    -kpe-console-text: #0f766e;
+    -kpe-hero-1: #cfe0ff;
+    -kpe-hero-2: #d9f1ee;
+    -kpe-hero-3: #e8f4ff;
+    -kpe-overlay: rgba(255, 255, 255, 0.15);
+}
